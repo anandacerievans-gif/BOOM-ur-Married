@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💍 BOOM ur Married</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Nunito:wght@400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating explosion particles background -->
+  <div class="particles" id="particles"></div>
+
+  <div class="app-container">
+
+    <!-- ============ SCREEN 1: HOME ============ -->
+    <section class="screen active" id="screen-home">
+      <h1 class="logo">B<span class="ring">⭘</span><span class="ring">⭘</span>M</h1>
+      <p class="logo-subtitle">ur Married 💥</p>
+      <p class="tagline">Something caught your eye? Your heart said YES?<br>We're already printing the certificate.</p>
+      <button class="btn-primary" onclick="goTo('screen-setup')">LET'S GET HITCHED 💍</button>
+    </section>
+
+    <!-- ============ SCREEN 2: SETUP ============ -->
+    <section class="screen" id="screen-setup">
+      <h2 class="screen-title">Who's the Lucky One? 💕</h2>
+
+      <div class="spouse-card">
+        <h3>👰 SPOUSE #1 (That's You)</h3>
+        <label class="photo-upload" id="photo1-label">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'preview1')" hidden>
+          <img id="preview1" class="preview-img" src="" alt="">
+          <span class="upload-text">📷 Add Photo</span>
+        </label>
+        <input type="text" id="name1" class="name-input" placeholder="Your name">
+      </div>
+
+      <div class="heart-divider">💍</div>
+
+      <div class="spouse-card">
+        <h3>🤵 SPOUSE #2 (The Chosen)</h3>
+        <label class="photo-upload" id="photo2-label">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'preview2')" hidden>
+          <img id="preview2" class="preview-img" src="" alt="">
+          <span class="upload-text">📷 Add Photo</span>
+        </label>
+        <input type="text" id="name2" class="name-input" placeholder="Their name (or 'My Pizza')">
+      </div>
+
+      <h3 class="vow-title">💌 Choose Your Vow Vibe</h3>
+      <select id="vowStyle" class="vow-select">
+        <option value="classic">Classic Romance 🌹</option>
+        <option value="chaotic">Chaotic Good 🌮</option>
+        <option value="object">Objectum Sincere 🧸</option>
+        <option value="surprise">Surprise Me 🎲</option>
+      </select>
+
+      <button class="btn-primary" onclick="startCeremony()">BOOM: CEREMONY TIME 💥</button>
+      <button class="btn-back" onclick="goTo('screen-home')">← Back</button>
+    </section>
+
+    <!-- ============ SCREEN 3: CEREMONY ============ -->
+    <section class="screen" id="screen-ceremony">
+      <div class="ceremony-rings">💍⚡💍</div>
+      <h2 class="screen-title">The Ceremony</h2>
+      <p class="vow-text" id="vowText">Dearly beloved...</p>
+      <div class="ceremony-controls">
+        <button class="btn-secondary" onclick="playVows()">▶️ Play Vows</button>
+        <button class="btn-secondary" onclick="stopVows()">⏸️ Stop</button>
+      </div>
+      <button class="btn-primary boom-btn" onclick="sealTheDeal()">💥 SAY "I DO" 💥</button>
+    </section>
+
+    <!-- ============ SCREEN 4: RESULTS ============ -->
+    <section class="screen" id="screen-results">
+      <h2 class="screen-title">🎉 You're Married! 🎉</h2>
+
+      <!-- Wedding Portrait -->
+      <div class="result-card portrait-card" id="portraitCard">
+        <div class="flowers">🌸 🌸 🌸</div>
+        <div class="portrait-images">
+          <img id="resultImg1" class="result-img" src="" alt="">
+          <span class="plus">💍</span>
+          <img id="resultImg2" class="result-img" src="" alt="">
+        </div>
+        <p class="couple-names" id="coupleNames"></p>
+        <div class="flowers">🌸 🌸 🌸</div>
+      </div>
+
+      <!-- Certificate -->
+      <div class="result-card certificate" id="certificateCard">
+        <h3>💥 OFFICIAL MARRIAGE CERTIFICATE 💥</h3>
+        <p class="cert-body" id="certBody"></p>
+        <div class="wax-seal">💥</div>
+        <p class="cert-disclaimer">*Not valid for taxes, immigration, or hospital visitation. Valid for bragging rights only.*</p>
+      </div>
+
+      <!-- Future Child -->
+      <div class="result-card future-card">
+        <h3>👶 YOUR FUTURE CHILD 👶</h3>
+        <p class="child-name" id="childName"></p>
+        <p class="life-story" id="lifeStory"></p>
+        <button class="btn-secondary" onclick="generateFuture()">🎲 Re-roll Future</button>
+      </div>
+
+      <button class="btn-primary" onclick="resetApp()">💍 Marry Again!</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
